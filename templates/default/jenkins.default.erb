@@ -43,7 +43,7 @@ MAXOPENFILES=8192
 HTTP_PORT=<%= node['jenkins']['server']['port'] %>
 
 # port for AJP connector (disabled by default)
-AJP_PORT=-1
+AJP_PORT=<%= node['jenkins']['server']['ajp']['port'] %>
 
 # arguments to pass to jenkins.
 # --javahome=$JAVA_HOME
@@ -53,4 +53,4 @@ AJP_PORT=-1
 # --argumentsRealm.passwd.$ADMIN_USER=[password]
 # --argumentsRealm.$ADMIN_USER=admin
 # --webroot=~/.jenkins/war
-JENKINS_ARGS="--webroot=/var/run/jenkins/war --httpPort=$HTTP_PORT --ajp13Port=$AJP_PORT"
+JENKINS_ARGS="--webroot=/var/run/jenkins/war --httpPort=$HTTP_PORT --ajp13Port=$AJP_PORT --ajp13ListenAddress=127.0.0.1"
